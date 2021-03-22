@@ -1,0 +1,15 @@
+.friend {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  background-color: yellow;
+  margin: 10px;
+  float: left;
+}
+
+.name {
+  padding-top: 30px;
+  color: white;
+  font-size: 10pt;
+  text-align: center;
+}
