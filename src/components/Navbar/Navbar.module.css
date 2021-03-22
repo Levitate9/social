@@ -1,0 +1,19 @@
+.nav {
+  grid-area: n;
+  background-color: rgb(35, 99, 69);
+  height: 100%;
+  padding: 20px;
+}
+
+.item a {
+  text-decoration: none;
+  color: white;
+}
+
+.item a.active {
+  color: gold !important;
+}
+
+.item:last-child {
+  margin-top: 30px;
+}
