@@ -5,7 +5,6 @@ import Message from './Message/Message';
 import { Redirect } from 'react-router-dom';
 import { reduxForm } from 'redux-form';
 import { createField, Textarea } from '../common/FormsControls/FormsControls';
-// import { maxLengthCreator, required } from '../../utils/validators/validators';
 
 
 const Dialogs = (props) => {
@@ -19,8 +18,6 @@ const Dialogs = (props) => {
   }
 
   if (!props.isAuth) return <Redirect to={'/login'} />
-
-  // const maxLength140 = maxLengthCreator(140);    //обязательно создаётся за пределами формы
 
   const AddMessageForm = (props) => {
     return (
