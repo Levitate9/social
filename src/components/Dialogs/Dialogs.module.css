@@ -9,12 +9,11 @@
 }
 
 .dialogs_items a {
-  color: white;
+  color: black;
   text-decoration: none;
 }
 
 .messages {
   padding-left: 10px;
   padding-top: 10px;
-  color: white;
 }

@@ -5,7 +5,8 @@ import s from './Header.module.css';
 const Header = (props) => {
   return (
     <header className={s.header}>
-      <img className={s.main_logo} src='https://www.pngkit.com/png/full/969-9692405_jordan-logo-gray-amtrak-white-logo.png' />
+      <img className={s.main_logo} alt='main logo' 
+        src='https://www.pngkit.com/png/full/969-9692405_jordan-logo-gray-amtrak-white-logo.png' />
       <div className={s.login_block}>
         {
           props.isAuth

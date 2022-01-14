@@ -1,9 +1,72 @@
-.profile_img {
-  height: 150px;
-  width: 100%;
+.description {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0 0 0 10px;
 }
 
-.description {
-  padding-top: 10px;
-  padding-left: 10px;
+.profileDataArea {
+  margin: 0 0 0 20px;
+  flex-grow: 1;
+}
+
+.mainPhoto {
+  width: 250px;
+  height: 250px;
+}
+
+.fullName, .fullNameForm,
+.status > div,
+.lookingForAJob, .lookingForAJobForm,
+.aboutMe, .aboutMeForm,
+.skills, .skillsForm,
+.contacts, .contactsForm {
+  padding: 0 0 10px 0;
+}
+
+
+.fullName {
+  margin: -8px 0 0 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.facebook, .website, .vk, .twitter, .instagram,
+.youtube, .github, .mainLink {
+  width: 35px;
+  height: 35px;
+  padding: 0 10px 0 0;
+}
+
+.facebook {
+  content: url(https://img.icons8.com/fluency/48/000000/facebook.png);
+}
+
+.website {
+  content: url(https://img.icons8.com/color/48/000000/domain--v1.png);
+}
+
+.vk {
+  content: url(https://img.icons8.com/color/48/000000/vk-com.png);
+}
+
+.twitter {
+  content: url(https://img.icons8.com/color/48/000000/twitter-squared.png);
+}
+
+.instagram {
+  content: url(https://img.icons8.com/color/48/000000/instagram.png);
+}
+
+.youtube {
+  content: url(https://img.icons8.com/color/48/000000/youtube-squared.png);
+}
+
+.github {
+  content: url(https://img.icons8.com/color/48/000000/github--v1.png);
+}
+
+.mainLink {
+  content: url(https://img.icons8.com/color/48/000000/copy-link.png);
 }

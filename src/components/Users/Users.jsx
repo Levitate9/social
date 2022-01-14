@@ -1,8 +1,8 @@
-import React from 'react';
-import s from './Users.module.css';
-import userPhoto from '../../assets/images/user.png';
-import { NavLink } from 'react-router-dom';
-import Paginator from '../common/Paginator/Paginator';
+import React from 'react'
+import s from './Users.module.css'
+import userPhoto from '../../assets/images/user.png'
+import { NavLink } from 'react-router-dom'
+import Paginator from '../common/Paginator/Paginator'
 
 const Users = ({currentPage, totalUsersCount, pageSize, onPageChanged, users, ...props}) => {
 
@@ -18,7 +18,7 @@ const Users = ({currentPage, totalUsersCount, pageSize, onPageChanged, users, ..
           <span>
             <div className={s.ava}>
               <NavLink to={'/profile/' + u.id} >
-                <img src={u.photos.small != null ? u.photos.small : userPhoto} className={s.userPhoto} />
+                <img src={u.photos.small != null ? u.photos.small : userPhoto} alt='user' className={s.userPhoto} />
               </NavLink>
             </div>
             <div>
@@ -41,4 +41,4 @@ const Users = ({currentPage, totalUsersCount, pageSize, onPageChanged, users, ..
   )
 }
 
-export default Users;
+export default Users

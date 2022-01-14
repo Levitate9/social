@@ -1,48 +1,44 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import s from './ProfileInfo.module.css';
+
 
 const ProfileStatusWithHooks = (props) => {
+  let [editMode, setEditMode] = useState(false);
+  let [status, setStatus] = useState(props.status);
 
-  let [editMode, setEditMode] = useState(false)
-  let [status, setStatus] = useState(props.status)
+  useEffect(() => {
+    setStatus(props.status);
+  }, [props.status]);
 
-  let activateEditMode = () => {
-    setEditMode(true)
+  const activateEditMode = () => {
+    setEditMode(true);
   }
 
-  let deactivateEditMode = () => {
-    setEditMode(false)
-    props.updateUserStatus(status)
+  const deactivateEditMode = () => {
+    setEditMode(false);
+    props.updateStatus(status);
   }
 
-  let onStatusChange = (e) => {
-    setStatus(e.currentTarget.value)
+  const onStatusChange = (e) => {
+    setStatus(e.currentTarget.value);
   }
-
-  //Хук useEffect срабатывает после отрисовки компонента, в котором он использован.
-  //Хук сработает по сценарию, описанному в функции.
-  //Если если в useEffect передать только ф-цию, то он будет вызываться
-  //каждый раз после перерисовки компонента.
-  //А если установить зависимость от props.status через массив, то хук будет вызываться
-  //после перерисовки компонента только если изменился props.status.
-  useEffect( () => {
-    setStatus(props.status)
-  }, [props.status])
 
   return (
-    <div>
-      {
-        (!editMode)
-          ? <div>
-            <span onDoubleClick={activateEditMode}>{props.status || 'status'}</span>
-          </div>
-          : <div>
-            <input autoFocus={true} onBlur={deactivateEditMode} onChange={onStatusChange} value={status} />
-          </div>
+    <div className={s.status}>
+      {!editMode &&
+        <div>
+          <span onDoubleClick={activateEditMode}>{props.status || "-------"}</span>
+        </div>
+      }
+      {editMode &&
+        <div>
+          <input onChange={onStatusChange} autoFocus={true} onBlur={deactivateEditMode}
+            value={status} />
+        </div>
       }
     </div>
   )
 }
-
 
 
 export default ProfileStatusWithHooks;

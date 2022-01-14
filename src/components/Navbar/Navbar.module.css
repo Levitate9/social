@@ -2,7 +2,7 @@
   grid-area: n;
   background-color: rgb(35, 99, 69);
   height: 100%;
-  padding: 20px;
+  padding: 20px 0 0 20px;
 }
 
 .item a {
@@ -11,7 +11,7 @@
 }
 
 .item a.active {
-  color: gold !important;
+  color: gold;
 }
 
 .item:last-child {

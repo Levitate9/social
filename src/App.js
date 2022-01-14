@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
-import { BrowserRouter, Route, withRouter } from 'react-router-dom';
+import { HashRouter, Redirect, Route, Switch, withRouter } from 'react-router-dom';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
-import Friends from './components/Friends/Friends';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Login from './components/Login/Login';
 import { connect, Provider } from 'react-redux';
@@ -14,23 +13,31 @@ import Preloader from './components/common/Preloader/Preloader';
 import { compose } from 'redux';
 import store from './redux/redux-store';
 import { Suspense } from 'react';
-//import ProfileContainer from './components/Profile/ProfileContainer';
-//import DialogsContainer from './components/Dialogs/DialogsContainer';
-//import UsersContainer from './components/Users/UsersContainer';
-const ProfileContainer = React.lazy( () => import('./components/Profile/ProfileContainer'))
-const DialogsContainer = React.lazy( () => import('./components/Dialogs/DialogsContainer'))
-const UsersContainer = React.lazy( () => import('./components/Users/UsersContainer'))
+import { Footer } from './components/Footer/Footer';
 
+const ProfileContainer = React.lazy( () => import('./components/Profile/ProfileContainer') )
+const DialogsContainer = React.lazy( () => import('./components/Dialogs/DialogsContainer') )
+const UsersContainer = React.lazy( () => import('./components/Users/UsersContainer') )
 
 class App extends React.Component {
 
+  catchAllUnhandledErrors = (PromiseRejectionEvent) => {
+    console.log(PromiseRejectionEvent)
+    alert(PromiseRejectionEvent.reason.response.data.message || 'some error')
+  }
+
   componentDidMount() {
-    this.props.initializeApp();
+    this.props.initializeApp()
+    window.addEventListener('unhandledrejection', this.catchAllUnhandledErrors)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('unhandledrejection', this.catchAllUnhandledErrors)
   }
 
   render() {
     let state = this.props.store.getState();
-    
+
     if (!this.props.initialized) {
       return <Preloader/>
     }
@@ -41,18 +48,22 @@ class App extends React.Component {
         <Navbar state={state.sidebar} />
         <div className='app-wrapper-content'>
           <Suspense fallback={<Preloader />}>
-            <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
-            <Route path='/dialogs' render={() => <DialogsContainer />} />
-            <Route path='/users' render={() => <UsersContainer />} />
-            <Route path='/news' component={News} />
-            <Route path='/music' component={Music} />
-            <Route path='/settings' component={Settings} />
-            <Route path='/friends' component={Friends} />
-            <Route path='/login' render={() => <Login />} />
+            <Switch>
+              <Route exact path='/' render={() => <Redirect from='/' to='/profile' />} /> 
+              <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
+              <Route path='/dialogs' render={() => <DialogsContainer />} />
+              <Route path='/users' render={() => <UsersContainer />} />
+              <Route path='/news' component={News} />
+              <Route path='/music' component={Music} />
+              <Route path='/settings' component={Settings} />
+              <Route path='/login' render={() => <Login />} />
+              <Route path='*' render={ () => <div>404 Page not found</div> } /> 
+            </Switch>
           </Suspense>
         </div>
+        <Footer />
       </div>
-    );
+    )
   }
 }
 
@@ -67,12 +78,12 @@ let AppContainer = compose(withRouter, connect(mapStateToProps, {initializeApp})
 const SamuraiJSApp = (props) => {
   return (
     <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={store} >
-        <AppContainer store={store}/>
-      </Provider>
-    </BrowserRouter>
-  </React.StrictMode>
+      <HashRouter>
+        <Provider store={store} >
+          <AppContainer store={store}/>
+        </Provider>
+      </HashRouter>
+    </React.StrictMode>
   )
 }
 

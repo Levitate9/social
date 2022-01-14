@@ -1,4 +1,4 @@
-const ADD_MESSAGE = 'ADD-MESSAGE';
+const ADD_MESSAGE = 'ADD-MESSAGE'
 
 let initialState = {
   dialogs: [
@@ -18,7 +18,7 @@ let initialState = {
     { id: 5, message: 'What are you looking for?' },
     { id: 6, message: 'Newermind' }
   ]
-};
+}
 
 const dialogsReducer = (state = initialState, action) => {
 
@@ -26,14 +26,14 @@ const dialogsReducer = (state = initialState, action) => {
     case ADD_MESSAGE: 
       return {
         ...state,
-        messages: [...state.messages, {id: 7, message: action.text}]
+        messages: [...state.messages, {id: state.messages.length + 1, message: action.text}]
       }
       
     default:
-      return state;
+      return state
   }
 }
 
-export const addMessage = (text) => ({ type: ADD_MESSAGE, text });
+export const addMessage = (text) => ({ type: ADD_MESSAGE, text })
 
-export default dialogsReducer;
+export default dialogsReducer

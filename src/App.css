@@ -2,13 +2,16 @@
   display: grid;
   grid-template-areas: 
   'h h'
-  'n c';
-  grid-template-rows: 70px 1fr;
+  'n c'
+  'f f' ;
+  grid-template-rows: 70px 10fr 70px; 
   grid-template-columns: 2fr 10fr;
-  grid-gap: 10px;
+  grid-gap: 7px;
 }
 
 .app-wrapper-content {
   grid-area: c;
-  background-color: cornflowerblue;
+  background-color: #e0e0e0;
+  height: 100%;
+  padding: 10px 0 10px 10px;
 }

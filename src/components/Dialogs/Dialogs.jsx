@@ -3,13 +3,12 @@ import s from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 import { Redirect } from 'react-router-dom';
-import { Field, reduxForm } from 'redux-form';
-import { ElementConstructor } from '../common/FormsControls/FormsControls';
-import { maxLengthCreator, required } from '../../utils/validators/validators';
+import { reduxForm } from 'redux-form';
+import { createField, Textarea } from '../common/FormsControls/FormsControls';
+// import { maxLengthCreator, required } from '../../utils/validators/validators';
 
 
 const Dialogs = (props) => {
-
   let state = props.dialogsPage;
 
   let dialogsElements = state.dialogs.map(el => <DialogItem id={el.id} name={el.name} key={el.id} />);
@@ -21,18 +20,13 @@ const Dialogs = (props) => {
 
   if (!props.isAuth) return <Redirect to={'/login'} />
 
-  const Textarea = ElementConstructor('textarea')
-  const maxLength15 = maxLengthCreator(15);    //Textarea и maxLength15 обязательно создаются за пределами формы
+  // const maxLength140 = maxLengthCreator(140);    //обязательно создаётся за пределами формы
 
   const AddMessageForm = (props) => {
     return (
       <form onSubmit={props.handleSubmit}>
         <div>
-          <Field component={Textarea}
-            name={'newMessageBody'}
-            placeholder={'Enter your message'}
-            validate={ [required, maxLength15] }
-          />
+          { createField('Enter your message', 'newMessageBody', [], Textarea) }
         </div>
         <div><button>Add message</button></div>
       </form>
