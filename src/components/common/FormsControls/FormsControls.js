@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './FormsControls.module.css'
-import {Field} from "redux-form";
+import { Field } from "redux-form";
 
 // 77 видео, 25:30 - деструктуризация пропсов
 const FormControl = ({input, meta: {touched, error}, children}) => {

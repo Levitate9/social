@@ -9,9 +9,9 @@ const Users = ({currentPage, totalUsersCount, pageSize, onPageChanged, users, ..
   return (
     <div className={s.wrap}>
       <div className={s.pagination}>
-      <Paginator currentPage={currentPage} onPageChanged={onPageChanged} 
-        totalItemsCount={totalUsersCount} pageSize={pageSize} 
-      />
+        <Paginator currentPage={currentPage} onPageChanged={onPageChanged} 
+          totalItemsCount={totalUsersCount} pageSize={pageSize} 
+        />
       </div>
       {
         users.map(u => <div key={u.id} className={s.user}>
