@@ -73,6 +73,7 @@ const ProfileData = ({ profile, isOwner, goToEditMode, status, updateStatus }) =
         if (profile.contacts[key]) {
           return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]} />
         }
+        return null
       })}
     </div>
     {isOwner && <div className={s.button}><button onClick={goToEditMode}>edit</button></div>}

@@ -1,11 +1,10 @@
-import React from 'react';
-import s from './Dialogs.module.css';
-import DialogItem from './DialogItem/DialogItem';
-import Message from './Message/Message';
-import { Redirect, Route, Switch } from 'react-router-dom';
-import { reduxForm } from 'redux-form';
-import { createField, Textarea } from '../common/FormsControls/FormsControls';
-import { useRouteMatch } from 'react-router-dom/cjs/react-router-dom.min';
+import React from 'react'
+import s from './Dialogs.module.css'
+import DialogItem from './DialogItem/DialogItem'
+import Message from './Message/Message'
+import { Redirect, Route, Switch, useRouteMatch } from 'react-router-dom'
+import { reduxForm } from 'redux-form'
+import { createField, Textarea } from '../common/FormsControls/FormsControls'
 
 
 const Dialogs = (props) => {
