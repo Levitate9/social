@@ -1,25 +1,5 @@
 const ADD_MESSAGE = 'ADD-MESSAGE'
 
-// let initialState = {
-//   dialogs: [
-//     { id: 1, name: 'Dimych' },
-//     { id: 2, name: 'Anrew' },
-//     { id: 3, name: 'Sveta' },
-//     { id: 4, name: 'Sasha' },
-//     { id: 5, name: 'Viktor' },
-//     { id: 6, name: 'Valera' }
-//   ],
-
-//   messages: [
-//     { id: 1, message: 'Hi' },
-//     { id: 2, message: 'How are you?' },
-//     { id: 3, message: 'I`m good' },
-//     { id: 4, message: 'Let`s play some game' },
-//     { id: 5, message: 'What are you looking for?' },
-//     { id: 6, message: 'Newermind' }
-//   ]
-// }
-
 let initialState = {
   dialogs: [
     { 
@@ -96,7 +76,17 @@ const dialogsReducer = (state = initialState, action) => {
     case ADD_MESSAGE: 
       return {
         ...state,
-        messages: [...state.messages, {id: state.messages.length + 1, message: action.text}]
+        dialogs: [
+          ...state.dialogs, 
+          state.dialogs[action.data.id - 1].chat_history.push(
+            { 
+              message_id: state.dialogs[action.data.id - 1].chat_history.length + 1, 
+              onwer: true, 
+              message_text: action.data.newMessageBody,
+              message_date: ''
+            }
+          )
+        ]
       }
       
     default:
@@ -104,6 +94,6 @@ const dialogsReducer = (state = initialState, action) => {
   }
 }
 
-export const addMessage = (text) => ({ type: ADD_MESSAGE, text })
+export const addMessage = (data) =>  ({ type: ADD_MESSAGE, data })
 
 export default dialogsReducer

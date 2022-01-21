@@ -3,8 +3,7 @@ import s from './Dialogs.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import Message from './Message/Message'
 import { Redirect, Route, Switch, useRouteMatch } from 'react-router-dom'
-import { reduxForm } from 'redux-form'
-import { createField, Textarea } from '../common/FormsControls/FormsControls'
+import { useForm } from 'react-hook-form'
 
 
 const Dialogs = (props) => {
@@ -23,25 +22,23 @@ const Dialogs = (props) => {
     return <Message key={m.message_id} message={m.message_text} owner={m.owner} />
   })
 
-  let addNewMessage = (values) => {
-    props.addMessage(values.newMessageBody)
-  }
-
   if (!props.isAuth) return <Redirect to={'/login'} />
 
-  const AddMessageForm = (props) => {
+  const AddMessageForm = () => {
+    const { register, handleSubmit } = useForm()
+    const onSubmit = (data) => {
+      data = { ...data, id: Number(match.params.slug) }
+      props.addMessage(data)
+    }
+
     return (
-      <form onSubmit={props.handleSubmit}>
-        <div>
-          { createField('Enter your message', 'newMessageBody', [], Textarea) }
-        </div>
-        <div><button>Add message</button></div>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <textarea {...register('newMessageBody', { maxLength: 140 })} />
+        <input type='submit' />
       </form>
     )
   }
  
-  const AddMessageReduxForm = reduxForm({ form: 'addMessageForm' })(AddMessageForm)
-
   return (
     <div className={s.dialogs}>
       <div className={s.dialogs_items}>{dialogsElements}</div>
@@ -51,7 +48,7 @@ const Dialogs = (props) => {
           <Route path={'/dialogs/:id'} render={ () => {
             return <div>
               {messagesElements}
-              <AddMessageReduxForm onSubmit={addNewMessage} />
+              <AddMessageForm />
             </div>
           } } />
         </Switch>
