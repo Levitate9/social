@@ -7,7 +7,7 @@
   margin-top: 10px;
 }
 
-.addPostTextarea > div > div > textarea {
+.addPostTextarea > textarea {
   height: 4vmax;
   width: 36.5vmax;
   padding: 5px 10px 5px 10px;

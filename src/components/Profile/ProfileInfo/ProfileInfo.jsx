@@ -3,11 +3,10 @@ import s from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader"
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks"
 import userPhoto from "../../../assets/images/user.png"
-import ProfileDataForm from "./ProfileDataForm"
+import ProfileDataFormReduxForm from './ProfileDataForm'
 
 
 const ProfileInfo = ({ profile, status, updateUserStatus, isOwner, savePhoto, saveProfile }) => {
-
   let [editMode, setEditMode] = useState(false)
 
   if (!profile) {
@@ -19,7 +18,7 @@ const ProfileInfo = ({ profile, status, updateUserStatus, isOwner, savePhoto, sa
       savePhoto(e.target.files[0])
     }
   }
-
+ 
   const onSubmit = (formData) => {
     saveProfile(formData).then(
       () => {
@@ -27,25 +26,29 @@ const ProfileInfo = ({ profile, status, updateUserStatus, isOwner, savePhoto, sa
       }
     )
   }
-
+ 
   return (
     <div className={s.description}>
       <div className={s.imageArea}>
         <img src={profile.photos.large || userPhoto} className={s.mainPhoto} alt="Фото профиля" />
         <div>
-          {isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
+          {isOwner && editMode && <input type={"file"} onChange={onMainPhotoSelected} />}
         </div>
       </div>
       <div className={s.profileDataArea}>
         {editMode
-          ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit} />
+          ? <ProfileDataFormReduxForm 
+              initialValues={profile} 
+              profile={profile} 
+              onSubmit={onSubmit}
+            />
           : <ProfileData
-            goToEditMode={() => { setEditMode(true) }}
-            profile={profile}
-            isOwner={isOwner}
-            status={status}
-            updateStatus={updateUserStatus}
-          />}
+              goToEditMode={() => { setEditMode(true) }}
+              profile={profile}
+              isOwner={isOwner}
+              status={status}
+              updateStatus={updateUserStatus}
+            />}
       </div>
     </div>
   )
