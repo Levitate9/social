@@ -2,7 +2,6 @@
 .wrapper {
   grid-area: f;
   background-color: rgb(35, 99, 69);
-  margin-top: 20px;
 }
 
 .copyrights {

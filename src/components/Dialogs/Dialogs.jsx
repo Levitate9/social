@@ -34,7 +34,7 @@ const Dialogs = (props) => {
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
         <textarea {...register('newMessageBody', { maxLength: 140 })} />
-        <input type='submit' />
+        <div><button type='submit'>Send</button></div>
       </form>
     )
   }
@@ -42,11 +42,11 @@ const Dialogs = (props) => {
   return (
     <div className={s.dialogs}>
       <div className={s.dialogs_items}>{dialogsElements}</div>
-      <div className={s.message_items}>
+      <div className={s.messages_items}>
         <Switch>
           <Route exact path={'/dialogs/'} render={ () => <div>select chat to start a conversation</div> } />
           <Route path={'/dialogs/:id'} render={ () => {
-            return <div>
+            return <div className={s.messages_items_area}>
               {messagesElements}
               <AddMessageForm />
             </div>

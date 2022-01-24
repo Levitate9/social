@@ -35,8 +35,7 @@ const Login = (props) => {
   if (props.isAuth) {
     return <Redirect to={'/profile'} />
   }
-  //если isAuth true то выполняется редирект на профиль, 
-  //если false то выполнение идёт дальше и показывает форму входа
+
   return (
     <div>
       <h1>Login</h1>

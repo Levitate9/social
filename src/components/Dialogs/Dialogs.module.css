@@ -1,11 +1,20 @@
 .dialogs {
-  display: grid;
-  grid-template-columns: 2fr 10fr;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.dialogs_items,
+.messages_items {
+  padding-left: 20px;
+  padding-top: 20px;
 }
 
 .dialogs_items {
-  padding-left: 10px;
-  padding-top: 10px;
+  flex-grow: 1;
+  background-color: azure;
+  border-right: 2px solid rgb(102, 102, 102);
 }
 
 .dialogs_items a {
@@ -13,7 +22,14 @@
   text-decoration: none;
 }
 
-.messages {
-  padding-left: 10px;
-  padding-top: 10px;
+.messages_items {
+  flex-grow: 4;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.messages_items_area {
+  width: 70%;
 }

@@ -11,7 +11,7 @@ const SET_NEW_PROFILE = 'SET_NEW_PROFILE'
 let initialState = {
   posts: [
     { id: 1, message: 'It`s my first post', likesCount: 15 }, 
-    { id: 2, message: 'Hi, how are you?', likesCount: 20 }
+    { id: 2, message: 'Second post', likesCount: 20 }
   ],
   profile: null,
   status: null
@@ -23,7 +23,7 @@ const profileReducer = (state = initialState, action) => {
     case ADD_POST: {
       return {
         ...state,
-        posts: [...state.posts, { id: 5, message: action.text, likesCount: 0 }],
+        posts: [...state.posts, { id: state.posts.length + 1, message: action.text, likesCount: 0 }]
       }
     }
 

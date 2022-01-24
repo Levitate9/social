@@ -1,6 +1,9 @@
 .header {
   grid-area: h;
   background-color: rgb(35, 99, 69);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .main_logo {
@@ -11,10 +14,23 @@
 }
 
 .login_block {
-  float: right;
+  display: flex;
+  flex-direction: row;
+  justify-content: fle-start;
+  align-items: center;
+  margin-right: 30px;
+}
+
+.login_block > div {
+  color: rgb(255, 255, 255);
+}
+
+.login_block > div > button {
+  cursor: pointer;
+  height: 30px;
 }
 
 .login_block a {
   text-decoration: none;
-  color: white;
+  color: rgb(255, 255, 255);
 }

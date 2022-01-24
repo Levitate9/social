@@ -10,7 +10,7 @@ const MyPosts = React.memo((props) => {
 
   (props.profile === null) ? profilePhoto = defaultUser : profilePhoto = props.profile.photos.large
   
-  let postsElements = props.posts.map(el => <Post 
+  let postsElements = props.posts.sort((a, b) => a.id - b.id).reverse().map(el => <Post 
     message={el.message} 
     likesCount={el.likesCount} 
     profilePhoto={profilePhoto}
@@ -23,12 +23,10 @@ const MyPosts = React.memo((props) => {
       props.addPost(data.addPost)
     }
   
-    return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className={s.addPostTextarea}><textarea placeholder={'Post message'} {...register('addPost')}/></div>
-        <div className={s.addPostButton}><button type={'submit'}>Add post</button></div>
-      </form>
-    )
+    return <form onSubmit={handleSubmit(onSubmit)}>
+      <div className={s.addPostTextarea}><textarea placeholder={'Post message'} {...register('addPost')}/></div>
+      <div className={s.addPostButton}><button type={'submit'}>Add post</button></div>
+    </form>
   }
 
   return (
