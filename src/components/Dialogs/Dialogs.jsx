@@ -18,9 +18,8 @@ const Dialogs = (props) => {
     return el.dialog_id === Number(match.params.slug)
   })
 
-  let messagesElements = filterMessages[0].chat_history.map( m => {
-    return <Message key={m.message_id} message={m.message_text} owner={m.owner} />
-  })
+  let messagesElements = filterMessages[0].chat_history.map( m => <Message 
+    key={m.message_id} message={m.message_text} owner={m.owner} />)
 
   if (!props.isAuth) return <Redirect to={'/login'} />
 
