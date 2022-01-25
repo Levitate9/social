@@ -1,7 +1,5 @@
-.dialog {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+.dialog_item:hover {
+  background-color: rgb(207, 207, 207);
 }
 
 .active {

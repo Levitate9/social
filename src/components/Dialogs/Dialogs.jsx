@@ -27,13 +27,13 @@ const Dialogs = (props) => {
   const AddMessageForm = () => {
     const { register, handleSubmit } = useForm()
     const onSubmit = (data) => {
-      data = { ...data, id: Number(match.params.slug) }
+      data = { ...data, id: Number(match.params.slug), owner: true }
       props.addMessage(data)
     }
 
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <textarea {...register('newMessageBody', { maxLength: 140 })} />
+        <textarea {...register('newMessageBody', { maxLength: 1000 })} />
         <div><button type='submit'>Send</button></div>
       </form>
     )

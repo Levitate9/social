@@ -81,7 +81,7 @@ const dialogsReducer = (state = initialState, action) => {
           state.dialogs[action.data.id - 1].chat_history.push(
             { 
               message_id: state.dialogs[action.data.id - 1].chat_history.length + 1, 
-              onwer: true, 
+              owner: action.data.owner, 
               message_text: action.data.newMessageBody,
               message_date: ''
             }

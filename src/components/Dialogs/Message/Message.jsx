@@ -3,12 +3,8 @@ import s from './Message.module.css';
 
 const Message = (props) => {
   return (
-    <div>
-      {
-        (props.owner) 
-          ? <span className={s.message + ' ' + s.owner}>{props.message}</span> 
-          : <span className={s.message}>{props.message}</span> 
-      }
+    <div className={s.message + ` ${props.owner ? s.owner : ''}`}>
+      <span className={s.message_body}>{props.message}</span>
     </div>
   )
 }

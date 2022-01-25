@@ -1,0 +1,22 @@
+.message {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: auto;
+  min-width: fit-content;
+}
+
+.owner {
+  flex-direction: row-reverse;
+}
+
+.message > span {
+  margin: 3px 0;
+  padding: 4px 10px 5px 10px;
+  border-radius: 10px;
+  min-width: fit-content;
+  height: fit-content;
+  background-color: rgb(255, 255, 255);
+}
+
