@@ -1,45 +1,43 @@
-import React from 'react';
-import { reduxForm } from 'redux-form';
-import { createField, Input } from '../common/FormsControls/FormsControls';
-import { required } from '../../utils/validators/validators';
-import { login } from '../../redux/auth-reducer';
-import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import s from '../common/FormsControls/FormsControls.module.css'
+import React from 'react'
+import { login } from '../../redux/auth-reducer'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
+import s from './Login.module.css'
 
-
-const LoginForm = ({handleSubmit, error, captchaUrl}) => {
-  return (
-    <form onSubmit={handleSubmit}>
-      {createField('Email', 'email', [required], Input)}
-      {createField('Password', 'password', [required], Input, {type: 'password'})}
-      {createField(null, 'rememberMe', [], Input, {type: 'checkbox'}, 'rememberMe')}
-
-      {error && <div className={s.formSummaryError}>{error}</div>}
-      
-      {captchaUrl && <img src={captchaUrl} alt="captcha" />}
-      {captchaUrl && createField('Symbols from image', 'captcha', [required], Input)}
-      <div><button>Login</button></div>
-    </form>
-  )
-}
-
-const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
 
 const Login = (props) => {
-
-  const onSubmit = (formData) => {
-    props.login(formData.email, formData.password, formData.rememberMe, formData.captcha);
-  }
-
   if (props.isAuth) {
     return <Redirect to={'/profile'} />
+  }
+
+  const LoginForm = (props) => {
+    const { register, handleSubmit, formState: { errors } } = useForm()
+    const onSubmit = (formData) => {
+      props.login(formData.email, formData.password, formData.rememberMe, formData.captcha);
+    }
+  
+    return (
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div><input {...register('email', {required: true})} type='email' placeholder='Email' /></div>
+        {errors.email && <span className={s.error}>email is required</span>}
+        <div><input {...register('password', {required: true})} type='password' placeholder='Password' /></div>
+        {errors.password && <span className={s.error}>password is required</span>}
+        <label><input {...register('rememberMe')} type='checkbox' /> remember me</label>
+
+        <div>{props.captchaUrl && <img src={props.captchaUrl} alt='captcha' />}</div>
+        <div>
+          {props.captchaUrl && <input {...register('captcha', {required: true})} placeholder='Symbols from image' />}
+        </div>
+        <button type='submit'>Log in</button>
+      </form>
+    )
   }
 
   return (
     <div>
       <h1>Login</h1>
-      <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />
+      <LoginForm login={props.login} captchaUrl={props.captchaUrl} />
     </div>
   )
 }
@@ -51,4 +49,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {login})(Login);
+export default connect(mapStateToProps, {login})(Login)
