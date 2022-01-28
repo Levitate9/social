@@ -70,3 +70,9 @@
 .mainLink {
   content: url(https://img.icons8.com/color/48/000000/copy-link.png);
 }
+
+.error {
+  background: rgba(255, 0, 0, 0.8);
+  padding: 3px;
+  color: rgba(255, 255, 255, 0.8);
+}

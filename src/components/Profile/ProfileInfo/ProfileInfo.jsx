@@ -3,7 +3,7 @@ import s from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader"
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks"
 import userPhoto from "../../../assets/images/user.png"
-import ProfileDataFormReduxForm from './ProfileDataForm'
+import ProfileDataForm from './ProfileDataForm'
 
 
 const ProfileInfo = ({ profile, status, updateUserStatus, isOwner, savePhoto, saveProfile }) => {
@@ -37,8 +37,7 @@ const ProfileInfo = ({ profile, status, updateUserStatus, isOwner, savePhoto, sa
       </div>
       <div className={s.profileDataArea}>
         {editMode
-          ? <ProfileDataFormReduxForm 
-              initialValues={profile} 
+          ? <ProfileDataForm 
               profile={profile} 
               onSubmit={onSubmit}
             />

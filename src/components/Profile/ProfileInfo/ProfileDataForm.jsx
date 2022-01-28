@@ -1,44 +1,52 @@
-import React from 'react';
-import s from './ProfileInfo.module.css';
-import { createField, Input, Textarea } from "../../common/FormsControls/FormsControls";
-import { reduxForm } from 'redux-form';
-import style from "../../common/FormsControls/FormsControls.module.css";
+import React from 'react'
+import s from './ProfileInfo.module.css'
+import { useForm } from 'react-hook-form'
 
 
-const ProfileDataForm = ({ handleSubmit, profile, error }) => {
-  return <form onSubmit={handleSubmit}>
-    {error && <div className={style.formSummaryError}>
-      {error}
-    </div>
-    }
+const ProfileDataForm = ({ onSubmit, profile }) => {
+  const preloadValues = {
+    fullName: profile.fullName,
+    lookingForAJob: profile.lookingForAJob,
+    aboutMe: profile.aboutMe,
+    lookingForAJobDescription: profile.lookingForAJobDescription,
+    contacts: profile.contacts
+  }
+
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    defaultValues: preloadValues
+  })
+
+  return <form onSubmit={handleSubmit(onSubmit)}>
     <div className={s.fullNameForm}>
-      <b>Full name</b>: {createField("Full name", "fullName", [], Input)}
+      <b>Full name</b>
+      <div><input {...register('fullName', { required: true })} placeholder='Full name' /></div>
+      {errors.fullName && <div className={s.error}>This field is required</div>}
     </div>
     <div className={s.lookingForAJobForm}>
-      <b>Looking for a job</b>:
-      <div>
-        {createField("", "lookingForAJob", [], Input, { type: "checkbox" })}
-      </div>
+      <label><input {...register('lookingForAJob')} type='checkbox' />looking for a job</label>
     </div>
     <div className={s.skillsForm}>
       <b>My professional skills</b>:
-      {createField("My professional skills", "lookingForAJobDescription", [], Textarea)}
+      <div><textarea {...register('lookingForAJobDescription')} placeholder='My professional skills' /></div>
     </div>
     <div className={s.aboutMeForm}>
       <b>About me</b>:
-      {createField("About me", "aboutMe", [], Textarea)}
+      <div><textarea {...register('aboutMe')} placeholder='About me description' /></div>
     </div>
     <div className={s.contactsForm}>
-      <b>Contacts</b>: {Object.keys(profile.contacts).map(key => {
-        return <div key={key} className={s.contact}>
-          <b>{key}: {createField(key, "contacts." + key, [], Input)}</b>
-        </div>
-      })}
+      <b>Contacts</b>:
+      <table>
+        <tbody>
+          {Object.keys(profile.contacts).map(key => {
+            return <tr key={key}>
+              <td>{key}:</td><td><input {...register('contacts.' + key)} placeholder={key} /></td>
+            </tr>
+          })}
+        </tbody>
+      </table>
     </div>
-    <div className={s.button}><button>save</button></div>
+    <div className={s.button} type='submit'><button>save</button></div>
   </form>
 }
 
-const ProfileDataFormReduxForm = reduxForm({ form: 'edit-profile' })(ProfileDataForm)
-
-export default ProfileDataFormReduxForm;
+export default ProfileDataForm
