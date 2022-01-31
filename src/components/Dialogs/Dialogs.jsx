@@ -8,6 +8,7 @@ import { useForm } from 'react-hook-form'
 
 const Dialogs = (props) => {
   let state = props.dialogsPage;
+  state.dialogs.sort((a, b) => a.dialog_id - b.dialog_id)
   let match = useRouteMatch('/dialogs/:slug')
 
   let dialogsElements = state.dialogs.map(el => <DialogItem key={el.dialog_id} name={el.user_name} id={el.dialog_id} />)
@@ -19,20 +20,26 @@ const Dialogs = (props) => {
   })
 
   let messagesElements = filterMessages[0].chat_history.map( m => <Message 
-    key={m.message_id} message={m.message_text} owner={m.owner} />)
+    key={m.message_id} message={m.message_text} owner={m.owner} date={m.message_date} />)
 
   if (!props.isAuth) return <Redirect to={'/login'} />
 
   const AddMessageForm = () => {
     const { register, handleSubmit } = useForm()
     const onSubmit = (data) => {
-      data = { ...data, id: Number(match.params.slug), owner: true }
+      data = { 
+        ...data, 
+        id: Number(match.params.slug), 
+        owner: true,
+        message_date: new Date()
+      }
       props.addMessage(data)
     }
 
     return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <textarea {...register('newMessageBody', { maxLength: 1000 })} />
+      <form className={s.add_message_form} onSubmit={handleSubmit(onSubmit)}>
+        <input {...register('newMessageBody', { maxLength: 1000 })} 
+          placeholder='Message' autoFocus />
         <div><button type='submit'>Send</button></div>
       </form>
     )
@@ -46,8 +53,8 @@ const Dialogs = (props) => {
           <Route exact path={'/dialogs/'} render={ () => <div>select chat to start a conversation</div> } />
           <Route path={'/dialogs/:id'} render={ () => {
             return <div className={s.messages_items_area}>
-              {messagesElements}
-              <AddMessageForm />
+              <div>{messagesElements}</div>
+              <div><AddMessageForm /></div>
             </div>
           } } />
         </Switch>

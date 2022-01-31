@@ -1,19 +1,18 @@
-import React from 'react';
-import './App.css';
-import Navbar from './components/Navbar/Navbar';
-import { HashRouter, Redirect, Route, Switch, withRouter } from 'react-router-dom';
-import News from './components/News/News';
-import Music from './components/Music/Music';
-import Settings from './components/Settings/Settings';
-import HeaderContainer from './components/Header/HeaderContainer';
-import Login from './components/Login/Login';
-import { connect, Provider } from 'react-redux';
-import { initializeApp } from './redux/app-reducer';
-import Preloader from './components/common/Preloader/Preloader';
-import { compose } from 'redux';
-import store from './redux/redux-store';
-import { Suspense } from 'react';
-import { Footer } from './components/Footer/Footer';
+import React from 'react'
+import './App.css'
+import Navbar from './components/Navbar/Navbar'
+import { HashRouter, Redirect, Route, Switch, withRouter } from 'react-router-dom'
+import News from './components/News/News'
+import Music from './components/Music/Music'
+import Settings from './components/Settings/Settings'
+import HeaderContainer from './components/Header/HeaderContainer'
+import Login from './components/Login/Login'
+import { connect, Provider } from 'react-redux'
+import { initializeApp } from './redux/app-reducer'
+import Preloader from './components/common/Preloader/Preloader'
+import { compose } from 'redux'
+import store from './redux/redux-store'
+import { Suspense } from 'react'
 
 const ProfileContainer = React.lazy( () => import('./components/Profile/ProfileContainer') )
 const DialogsContainer = React.lazy( () => import('./components/Dialogs/DialogsContainer') )
@@ -61,7 +60,6 @@ class App extends React.Component {
             </Switch>
           </Suspense>
         </div>
-        <Footer />
       </div>
     )
   }
