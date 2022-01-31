@@ -71,21 +71,26 @@ let initialState = {
 }
 
 const dialogsReducer = (state = initialState, action) => {
-
   switch (action.type) {
     case ADD_MESSAGE: 
-      return {
-        ...state,
+      let restDialogs = state.dialogs.filter(d => d.dialog_id !== action.data.id)
+      let id = action.data.id - 1
+            
+      return { 
+        ...state, 
         dialogs: [
-          ...state.dialogs, 
-          state.dialogs[action.data.id - 1].chat_history.push(
-            { 
-              message_id: state.dialogs[action.data.id - 1].chat_history.length + 1, 
-              owner: action.data.owner, 
-              message_text: action.data.newMessageBody,
-              message_date: ''
-            }
-          )
+          state.dialogs[id] = {
+            ...state.dialogs[id],
+            chat_history: [
+              ...state.dialogs[id].chat_history, {
+                message_id: state.dialogs[id].chat_history.length + 1,
+                owner: action.data.owner,
+                message_text: action.data.newMessageBody,
+                message_date: ''
+              }
+            ]
+          },
+          ...restDialogs
         ]
       }
       
