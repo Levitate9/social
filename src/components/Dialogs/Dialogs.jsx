@@ -9,18 +9,28 @@ import { useForm } from 'react-hook-form'
 const Dialogs = (props) => {
   let state = props.dialogsPage;
   state.dialogs.sort((a, b) => a.dialog_id - b.dialog_id)
-  let match = useRouteMatch('/dialogs/:slug')
+  let match = useRouteMatch('/dialogs/:id')
 
-  let dialogsElements = state.dialogs.map(el => <DialogItem key={el.dialog_id} name={el.user_name} id={el.dialog_id} />)
+  
   let filterMessages = state.dialogs.filter((el) => {
     if (match === null) {
       return state.dialogs[0]
      } 
-    return el.dialog_id === Number(match.params.slug)
+    return el.dialog_id === parseInt(match.params.id)
   })
 
   let messagesElements = filterMessages[0].chat_history.map( m => <Message 
-    key={m.message_id} message={m.message_text} owner={m.owner} date={m.message_date} />)
+    key={m.message_id} 
+    message={m.message_text} 
+    owner={m.owner} 
+    date={m.message_date} 
+  />)
+
+  let dialogsElements = state.dialogs.map(el => <DialogItem 
+    key={el.dialog_id} 
+    name={el.user_name} 
+    id={el.dialog_id}
+  />)
 
   if (!props.isAuth) return <Redirect to={'/login'} />
 
@@ -29,7 +39,7 @@ const Dialogs = (props) => {
     const onSubmit = (data) => {
       data = { 
         ...data, 
-        id: Number(match.params.slug), 
+        id: parseInt(match.params.id), 
         owner: true,
         message_date: new Date()
       }
@@ -63,4 +73,4 @@ const Dialogs = (props) => {
   )
 }
 
-export default Dialogs;
+export default Dialogs

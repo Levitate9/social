@@ -1,7 +1,17 @@
+.dialog_item {
+  border-radius: 5px;
+  margin-right: 2px;
+}
+
 .dialog_item:hover {
-  background-color: rgb(207, 207, 207);
+  background-color: rgb(231, 231, 231);
+}
+
+.dialog_item > a > div {
+  height: 70px;
 }
 
 .active {
-  font-weight: 600;
+  background-color: #3e7bd6 !important;
+  color: rgb(255, 255, 255);
 }
