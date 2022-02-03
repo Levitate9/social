@@ -26,11 +26,18 @@ const Dialogs = (props) => {
     date={m.message_date} 
   />)
 
-  let dialogsElements = state.dialogs.map(el => <DialogItem 
-    key={el.dialog_id} 
-    name={el.user_name} 
-    id={el.dialog_id}
-  />)
+  let dialogsElements = state.dialogs.map(el => {
+    let last_message = el.chat_history[el.chat_history.length - 1].message_text
+    let date = el.chat_history[el.chat_history.length - 1].message_date
+    let time = `${('0' + date.getHours()).slice(-2)}:${('0' + date.getMinutes()).slice(-2)}` 
+    return <DialogItem 
+      key={el.dialog_id} 
+      name={el.user_name} 
+      id={el.dialog_id} 
+      message={last_message} 
+      time={time}
+    />
+  })
 
   if (!props.isAuth) return <Redirect to={'/login'} />
 

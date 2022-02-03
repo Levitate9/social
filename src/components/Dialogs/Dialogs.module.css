@@ -8,19 +8,19 @@
 
 .dialogs_items {
   flex-grow: 1;
-  width: 25%;
+  width: 30%;
   background-color: azure;
   border-right: 1px solid rgb(177, 177, 177);
 }
 
 .dialogs_items a {
-  color: black;
+  color: rgb(0, 0, 0);
   text-decoration: none;
 }
 
 .messages_items {
-  flex-grow: 4;
-  width: 75%;
+  flex-grow: 3;
+  width: 70%;
   display: flex;
   flex-direction: row;
   justify-content: center;

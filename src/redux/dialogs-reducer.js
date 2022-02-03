@@ -9,7 +9,7 @@ let initialState = {
         { message_id: 1, owner: true, message_text: 'Hello Dimych', message_date: new Date('December 17, 2021 10:03:00') },
         { message_id: 2, owner: false, message_text: 'yo', message_date: new Date('December 17, 2021 10:04:00') },
         { message_id: 3, owner: true, message_text: 'How are you', message_date: new Date('December 17, 2021 10:04:30') },
-        { message_id: 4, owner: false, message_text: 'I`m fine, thanks', message_date: new Date('December 17, 2021 10:05:00') }
+        { message_id: 4, owner: false, message_text: 'I`m fine, thanks. Dimych', message_date: new Date('December 17, 2021 10:05:00') }
       ]
     },
 
@@ -20,7 +20,7 @@ let initialState = {
         { message_id: 1, owner: true, message_text: 'Hello Andrew', message_date: new Date('December 17, 2021 10:03:00') },
         { message_id: 2, owner: false, message_text: 'yo', message_date: new Date('December 17, 2021 10:04:00') },
         { message_id: 3, owner: true, message_text: 'How are you', message_date: new Date('December 17, 2021 10:04:30') },
-        { message_id: 4, owner: false, message_text: 'I`m fine, thanks', message_date: new Date('December 17, 2021 10:05:00') }
+        { message_id: 4, owner: false, message_text: 'I`m fine, thanks. Andrew', message_date: new Date('December 17, 2021 10:05:00') }
       ]
     },
 
@@ -31,7 +31,7 @@ let initialState = {
         { message_id: 1, owner: true, message_text: 'Hello Sveta', message_date: new Date('December 17, 2021 10:03:00') },
         { message_id: 2, owner: false, message_text: 'yo', message_date: new Date('December 17, 2021 10:04:00') },
         { message_id: 3, owner: true, message_text: 'How are you', message_date: new Date('December 17, 2021 10:04:30') },
-        { message_id: 4, owner: false, message_text: 'I`m fine, thanks', message_date: new Date('December 17, 2021 10:05:00') }
+        { message_id: 4, owner: false, message_text: 'I`m fine, thanks. Sveta', message_date: new Date('December 17, 2021 10:05:00') }
       ]
     },
 
@@ -42,7 +42,7 @@ let initialState = {
         { message_id: 1, owner: true, message_text: 'Hello Sasha', message_date: new Date('December 17, 2021 10:03:00') },
         { message_id: 2, owner: false, message_text: 'yo', message_date: new Date('December 17, 2021 10:04:00') },
         { message_id: 3, owner: true, message_text: 'How are you', message_date: new Date('December 17, 2021 10:04:30') },
-        { message_id: 4, owner: false, message_text: 'I`m fine, thanks', message_date: new Date('December 17, 2021 10:05:00') }
+        { message_id: 4, owner: false, message_text: 'I`m fine, thanks. Sasha', message_date: new Date('December 17, 2021 10:05:00') }
       ]
     },
 
@@ -53,7 +53,7 @@ let initialState = {
         { message_id: 1, owner: true, message_text: 'Hello Viktor', message_date: new Date('December 17, 2021 10:03:00') },
         { message_id: 2, owner: false, message_text: 'yo', message_date: new Date('December 17, 2021 10:04:00') },
         { message_id: 3, owner: true, message_text: 'How are you', message_date: new Date('December 17, 2021 10:04:30') },
-        { message_id: 4, owner: false, message_text: 'I`m fine, thanks', message_date: new Date('December 17, 2021 10:05:00') }
+        { message_id: 4, owner: false, message_text: 'I`m fine, thanks. Viktor', message_date: new Date('December 17, 2021 10:05:00') }
       ]
     },
 
@@ -64,7 +64,7 @@ let initialState = {
         { message_id: 1, owner: true, message_text: 'Hello Valera', message_date: new Date('December 17, 2021 10:03:00') },
         { message_id: 2, owner: false, message_text: 'yo', message_date: new Date('December 17, 2021 10:04:00') },
         { message_id: 3, owner: true, message_text: 'How are you', message_date: new Date('December 17, 2021 10:04:30') },
-        { message_id: 4, owner: false, message_text: 'I`m fine, thanks', message_date: new Date('December 17, 2021 10:05:00') }
+        { message_id: 4, owner: false, message_text: 'I`m fine, thanks. Valera', message_date: new Date('December 17, 2021 10:05:00') }
       ]
     }
   ]

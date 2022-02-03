@@ -7,6 +7,7 @@ import ProfileDataForm from './ProfileDataForm'
 
 
 const ProfileInfo = ({ profile, status, updateUserStatus, isOwner, savePhoto, saveProfile }) => {
+  console.log(profile)
   let [editMode, setEditMode] = useState(false)
 
   if (!profile) {
@@ -30,7 +31,7 @@ const ProfileInfo = ({ profile, status, updateUserStatus, isOwner, savePhoto, sa
   return (
     <div className={s.description}>
       <div className={s.imageArea}>
-        <img src={profile.photos.large || userPhoto} className={s.mainPhoto} alt="Фото профиля" />
+        <img src={profile.photos.large || userPhoto} className={s.mainPhoto} alt="profile avatar" />
         <div>
           {isOwner && editMode && <input type={"file"} onChange={onMainPhotoSelected} />}
         </div>

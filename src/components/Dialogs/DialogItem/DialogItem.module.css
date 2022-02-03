@@ -1,17 +1,57 @@
 .dialog_item {
   border-radius: 5px;
   margin-right: 2px;
+  overflow: hidden;
+  color: black;
 }
 
 .dialog_item:hover {
   background-color: rgb(231, 231, 231);
 }
 
+.dialog_item.active > a {
+  color: rgb(255, 255, 255) !important;
+}
+
 .dialog_item > a > div {
-  height: 70px;
+  height: 50px;
+}
+
+.dialog_item_body {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 10px;
+}
+
+.message {
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .active {
   background-color: #3e7bd6 !important;
-  color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255) !important;
+}
+
+.user_avatar > img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.time_area {
+  order: 2;
+  margin-left: auto;
+}
+
+.user_name {
+  font-weight: bold;
+}
+
+.time {
+  font-size: 11px;
+  padding-top: 5px;
 }
