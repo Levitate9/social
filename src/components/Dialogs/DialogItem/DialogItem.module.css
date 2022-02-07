@@ -17,18 +17,27 @@
   height: 50px;
 }
 
-.dialog_item_body {
+.dialog_item_wrap {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   padding: 10px;
 }
 
-.message {
-  max-width: 220px;
+.dialog_item_body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 10px;
+  width: 100%;
+}
+
+.subtitle_message {
+  max-width: 252px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
 }
 
 .active {
@@ -42,16 +51,28 @@
   border-radius: 50%;
 }
 
-.time_area {
-  order: 2;
-  margin-left: auto;
+.dialog_title_area,
+.dialog_subtitle_area {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.user_name {
+.dialog_title_area {
+  padding-top: 4px;
+}
+
+.dialog_subtitle_area {
+  padding-bottom: 3px;
+}
+
+.dialog_title {
   font-weight: bold;
 }
 
-.time {
+.dialog_time {
+  order: 2;
+  margin-left: auto;
   font-size: 11px;
-  padding-top: 5px;
+  padding-top: 4px;
 }

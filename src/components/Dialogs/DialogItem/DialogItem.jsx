@@ -14,17 +14,18 @@ const DialogItem = (props) => {
   return (
     <div className={props.id === dialogId ? s.dialog_item + ` ${s.active}` : s.dialog_item}>
       <NavLink to={path}>
-        <div className={s.dialog_item_body}>
+        <div className={s.dialog_item_wrap}>
           <div className={s.user_avatar}>
             <img src={avatar} alt='avatar' />
           </div>
-          <div className={s.body_area}>
-            <div className={s.dialog_title}><b>{props.name}</b></div>
-            <div className={s.message}>{props.message}</div>
-          </div>
-          <div className={s.time_area}>
-            <div className={s.time}>{props.time}</div>
-            <div></div>
+          <div className={s.dialog_item_body}>
+            <div className={s.dialog_title_area}>
+              <div className={s.dialog_title}><b>{props.name}</b></div>
+              <div className={s.dialog_time}>{props.time}</div>
+            </div>
+            <div className={s.dialog_subtitle_area}>
+              <div className={s.subtitle_message}>{props.message}</div>
+            </div>
           </div>
         </div>
       </NavLink>

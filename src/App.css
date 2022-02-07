@@ -2,11 +2,11 @@
   display: grid;
   grid-template-areas: 
   'h h'
-  'n c'
-  'f f' ;
-  grid-template-rows: 70px 10fr 70px; 
+  'n c';
+  grid-template-rows: 70px 12fr; 
   grid-template-columns: 2fr 10fr;
-  grid-gap: 7px;
+  grid-gap: 3px;
+  min-height: 100vh;
 }
 
 .app-wrapper-content {

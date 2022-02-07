@@ -6,10 +6,10 @@ let initialState = {
       dialog_id: 1,
       user_name: 'Dimych',
       chat_history: [
-        { message_id: 1, owner: true, message_text: 'Hello Dimych', message_date: new Date('December 17, 2021 10:03:00') },
-        { message_id: 2, owner: false, message_text: 'yo', message_date: new Date('December 17, 2021 10:04:00') },
-        { message_id: 3, owner: true, message_text: 'How are you', message_date: new Date('December 17, 2021 10:04:30') },
-        { message_id: 4, owner: false, message_text: 'I`m fine, thanks Mark', message_date: new Date('December 17, 2021 10:05:00') }
+        { message_id: 1, owner: true, message_text: 'Hello Dimych', message_date: new Date('January 17, 2022 10:03:00') },
+        { message_id: 2, owner: false, message_text: 'yo', message_date: new Date('January 17, 2022 10:04:00') },
+        { message_id: 3, owner: true, message_text: 'How are you', message_date: new Date('January 17, 2022 10:04:30') },
+        { message_id: 4, owner: false, message_text: 'I`m fine, thanks Mark', message_date: new Date('January 17, 2022 10:05:00') }
       ]
     },
 
@@ -17,12 +17,12 @@ let initialState = {
       dialog_id: 2,
       user_name: 'Andrew',
       chat_history: [
-        { message_id: 1, owner: true, message_text: 'Hello Andrew', message_date: new Date('December 17, 2021 10:06:00') },
-        { message_id: 2, owner: false, message_text: 'Hello', message_date: new Date('December 17, 2021 10:07:00') },
-        { message_id: 3, owner: true, message_text: 'How about chess match?', message_date: new Date('December 17, 2021 10:07:30') },
-        { message_id: 4, owner: false, message_text: 'Well, if you`re ready to losse..again))', message_date: new Date('December 17, 2021 10:09:00') },
-        { message_id: 5, owner: true, message_text: 'I had some practice since our last game', message_date: new Date('December 17, 2021 10:10:00') },
-        { message_id: 6, owner: true, message_text: 'And now I`m going to take revenge)', message_date: new Date('December 17, 2021 10:11:00') }
+        { message_id: 1, owner: true, message_text: 'Hello Andrew', message_date: new Date('February 7, 2021 10:06:00') },
+        { message_id: 2, owner: false, message_text: 'Hello', message_date: new Date('February 7, 2021 10:07:00') },
+        { message_id: 3, owner: true, message_text: 'How about chess match?', message_date: new Date('February 7, 2021 10:07:30') },
+        { message_id: 4, owner: false, message_text: 'Well, if you`re ready to losse..again))', message_date: new Date('February 7, 2021 10:09:00') },
+        { message_id: 5, owner: true, message_text: 'I had some practice since our last game', message_date: new Date('February 7, 2021 10:10:00') },
+        { message_id: 6, owner: true, message_text: 'And now I`m going to take revenge)', message_date: new Date('February 7, 2021 10:11:00') }
       ]
     },
 
@@ -30,14 +30,14 @@ let initialState = {
       dialog_id: 3,
       user_name: 'Sasha',
       chat_history: [
-        { message_id: 1, owner: true, message_text: 'Yo mate', message_date: new Date('December 17, 2021 12:03:00') },
-        { message_id: 2, owner: true, message_text: 'you MUST check the new Ital Tek album', message_date: new Date('December 17, 2021 12:03:20') },
-        { message_id: 3, owner: true, message_text: 'it`s called Otlands', message_date: new Date('December 17, 2021 12:03:50') },
-        { message_id: 4, owner: false, message_text: 'yo', message_date: new Date('December 17, 2021 12:41:10') },
-        { message_id: 5, owner: false, message_text: 'Already done!) ', message_date: new Date('December 17, 2021 12:42:00') },
-        { message_id: 6, owner: true, message_text: 'Favorite track?', message_date: new Date('December 17, 2021 12:42:40') },
-        { message_id: 7, owner: false, message_text: 'Chamber Music for sure', message_date: new Date('December 17, 2021 12:43:00') },
-        { message_id: 8, owner: true, message_text: 'That`s my boy!)', message_date: new Date('December 17, 2021 12:43:30') }
+        { message_id: 1, owner: true, message_text: 'Yo mate', message_date: new Date('January 7, 2022 09:03:00') },
+        { message_id: 2, owner: true, message_text: 'you MUST check the new Ital Tek album', message_date: new Date('January 7, 2022 09:03:20') },
+        { message_id: 3, owner: true, message_text: 'it`s called Otlands', message_date: new Date('January 7, 2022 09:03:50') },
+        { message_id: 4, owner: false, message_text: 'yo', message_date: new Date('January 7, 2022 09:41:10') },
+        { message_id: 5, owner: false, message_text: 'Already done!) ', message_date: new Date('January 7, 2022 09:42:00') },
+        { message_id: 6, owner: true, message_text: 'Favorite track?', message_date: new Date('January 7, 2022 09:42:40') },
+        { message_id: 7, owner: false, message_text: 'Chamber Music for sure', message_date: new Date('January 7, 2022 09:43:00') },
+        { message_id: 8, owner: true, message_text: 'That`s my boy!)', message_date: new Date('January 7, 2022 09:43:30') }
       ]
     },
 

@@ -7,7 +7,6 @@ import ProfileDataForm from './ProfileDataForm'
 
 
 const ProfileInfo = ({ profile, status, updateUserStatus, isOwner, savePhoto, saveProfile }) => {
-  console.log(profile)
   let [editMode, setEditMode] = useState(false)
 
   if (!profile) {

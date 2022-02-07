@@ -10,7 +10,8 @@
   flex-grow: 1;
   width: 30%;
   background-color: azure;
-  border-right: 1px solid rgb(177, 177, 177);
+  border-right: 3px solid rgb(255, 255, 255);
+  border-left: 1px solid rgb(255, 255, 255);
 }
 
 .dialogs_items a {
@@ -43,7 +44,7 @@
   flex-direction: row;
   justify-content: flex-start;
   position: fixed;
-  bottom: 100px;
+  bottom: 15px;
 }
 
 .add_message_form > input {
