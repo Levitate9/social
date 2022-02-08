@@ -35,7 +35,7 @@ const Dialogs = (props) => {
     let monthNow = new Date().getMonth()
     let yearNow = new Date().getFullYear()
 
-    if (dateNow === date.getDate() && monthNow  === date.getMonth() && yearNow === date.getFullYear()) {
+    if (dateNow === date.getDate() && monthNow === date.getMonth() && yearNow === date.getFullYear()) {
       time = Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: 'numeric', hour12: false }).format(date)
     } else if ((dateNow !== date.getDate() || monthNow !== date.getMonth()) && yearNow === date.getFullYear()) {
       time = Intl.DateTimeFormat('en-GB', { month: 'short', day: '2-digit' }).format(date)
@@ -79,15 +79,17 @@ const Dialogs = (props) => {
     <div className={s.dialogs}>
       <div className={s.dialogs_items}>{dialogsElements}</div>
       <div className={s.messages_items}>
-        <Switch>
-          <Route exact path={'/dialogs/'} render={() => <div>select chat to start a conversation</div>} />
-          <Route path={'/dialogs/:id'} render={() => {
-            return <div className={s.messages_items_area}>
-              <div>{messagesElements}</div>
-              <div><AddMessageForm /></div>
-            </div>
-          }} />
-        </Switch>
+        <div className={s.scrollable}>
+          <Switch>
+            <Route exact path={'/dialogs/'} render={() => <div>select chat to start a conversation</div>} />
+            <Route path={'/dialogs/:id'} render={() => {
+              return <div className={s.messages_items_area}>
+                {messagesElements}
+                <AddMessageForm />
+              </div>
+            }} />
+          </Switch>
+        </div>
       </div>
     </div>
   )

@@ -14,6 +14,14 @@
   border-left: 1px solid rgb(255, 255, 255);
 }
 
+.chat_background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 .dialogs_items a {
   color: rgb(0, 0, 0);
   text-decoration: none;
@@ -22,29 +30,35 @@
 .messages_items {
   flex-grow: 3;
   width: 70%;
+  height: calc(100vh - 73px);
+  background: linear-gradient(160deg, rgba(238,174,202,0.15) 0%, rgba(148,187,233,0.15) 100%);
+}
+
+.scrollable {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  background: rgb(238,174,202);
-  background: linear-gradient(160deg, rgba(238,174,202,0.15) 0%, rgba(148,187,233,0.15) 100%);
+  width: 100%;
+  overflow-y: overlay;
 }
 
 .messages_items_area {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
+  justify-content: flex-start;
   width: 50%;
-  min-height: 75.4vh;
+  height: calc(100vh - 73px - 78px);
 }
 
 .add_message_form {
+  align-self: center;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   position: fixed;
-  bottom: 15px;
+  width: 377px;
+  bottom: 25px;
+  margin-left: -18px;
 }
 
 .add_message_form > input {
@@ -55,6 +69,7 @@
   outline: none;
   border-radius: 10px;
   border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .add_message_form > div > button {
@@ -63,6 +78,7 @@
   width: 50px;
   border-radius: 15px;
   border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .add_message_form > div > button:hover {
