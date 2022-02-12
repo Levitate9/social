@@ -36,18 +36,20 @@ const ProfileInfo = ({ profile, status, updateUserStatus, isOwner, savePhoto, sa
         </div>
       </div>
       <div className={s.profileDataArea}>
-        {editMode
-          ? <ProfileDataForm 
-              profile={profile} 
-              onSubmit={onSubmit}
-            />
-          : <ProfileData
-              goToEditMode={() => { setEditMode(true) }}
-              profile={profile}
-              isOwner={isOwner}
-              status={status}
-              updateStatus={updateUserStatus}
-            />}
+        {
+          (editMode)
+            ? <ProfileDataForm 
+                profile={profile} 
+                onSubmit={onSubmit}
+              />
+            : <ProfileData
+                goToEditMode={() => { setEditMode(true) }}
+                profile={profile}
+                isOwner={isOwner}
+                status={status}
+                updateStatus={updateUserStatus}
+              />
+        }
       </div>
     </div>
   )

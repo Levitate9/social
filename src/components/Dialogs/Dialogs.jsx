@@ -81,7 +81,9 @@ const Dialogs = (props) => {
       <div className={s.messages_items}>
         <div className={s.scrollable}>
           <Switch>
-            <Route exact path={'/dialogs/'} render={() => <div>select chat to start a conversation</div>} />
+            <Route exact path={'/dialogs/'} render={() => {
+              return <div className={s.dialog_start}>select chat to start a conversation</div>
+            }} />
             <Route path={'/dialogs/:id'} render={() => {
               return <div className={s.messages_items_area}>
                 {messagesElements}

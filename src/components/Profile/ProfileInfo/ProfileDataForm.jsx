@@ -7,8 +7,8 @@ const ProfileDataForm = ({ onSubmit, profile }) => {
   const preloadValues = {
     fullName: profile.fullName,
     lookingForAJob: profile.lookingForAJob,
-    aboutMe: profile.aboutMe,
     lookingForAJobDescription: profile.lookingForAJobDescription,
+    aboutMe: profile.aboutMe,
     contacts: profile.contacts
   }
 
@@ -19,7 +19,7 @@ const ProfileDataForm = ({ onSubmit, profile }) => {
   return <form onSubmit={handleSubmit(onSubmit)}>
     <div className={s.fullNameForm}>
       <b>Full name</b>
-      <div><input {...register('fullName', { required: true })} placeholder='Full name' /></div>
+      <input {...register('fullName', { required: true })} placeholder='Full name' className={s.form_input} />
       {errors.fullName && <div className={s.error}>This field is required</div>}
     </div>
     <div className={s.lookingForAJobForm}>
@@ -27,11 +27,11 @@ const ProfileDataForm = ({ onSubmit, profile }) => {
     </div>
     <div className={s.skillsForm}>
       <b>My professional skills</b>:
-      <div><textarea {...register('lookingForAJobDescription')} placeholder='My professional skills' /></div>
+      <textarea {...register('lookingForAJobDescription')} placeholder='My skills' className={s.form_textarea} />
     </div>
     <div className={s.aboutMeForm}>
       <b>About me</b>:
-      <div><textarea {...register('aboutMe')} placeholder='About me description' /></div>
+      <textarea {...register('aboutMe')} placeholder='About me description' className={s.form_textarea} />
     </div>
     <div className={s.contactsForm}>
       <b>Contacts</b>:
@@ -39,7 +39,7 @@ const ProfileDataForm = ({ onSubmit, profile }) => {
         <tbody>
           {Object.keys(profile.contacts).map(key => {
             return <tr key={key}>
-              <td>{key}:</td><td><input {...register('contacts.' + key)} placeholder={key} /></td>
+              <td>{key}:</td><td><input {...register('contacts.' + key)} placeholder={key} className={s.form_input} /></td>
             </tr>
           })}
         </tbody>

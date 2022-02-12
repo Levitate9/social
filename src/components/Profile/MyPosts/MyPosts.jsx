@@ -24,7 +24,7 @@ const MyPosts = React.memo((props) => {
     }
   
     return <form onSubmit={handleSubmit(onSubmit)}>
-      <div className={s.addPostTextarea}><textarea placeholder={'Post message'} {...register('addPost')}/></div>
+      <textarea {...register('addPost')} placeholder={'Post message'} className={s.addPost_textarea} />
       <div className={s.addPostButton}><button type={'submit'}>Add post</button></div>
     </form>
   }
