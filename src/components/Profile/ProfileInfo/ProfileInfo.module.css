@@ -6,6 +6,12 @@
   padding: 0 0 0 10px;
 }
 
+.imageArea {
+  margin: 0;
+  padding: 0;
+  width: 250px;
+}
+
 .profileDataArea {
   margin: 0 0 0 20px;
   flex-grow: 1;
@@ -26,7 +32,6 @@
   padding: 0 0 10px 0;
 }
 
-
 .fullName {
   margin: -8px 0 0 0;
   font-size: 24px;
@@ -36,7 +41,7 @@
 .form_input,
 .form_textarea {
   width: 100%;
-  max-width: 300px;
+  max-width: 293px;
   margin-top: 5px;
   padding-top: 2px;
   padding-left: 5px;
@@ -54,6 +59,8 @@
 
 .form_textarea {
   height: 65px;
+  max-width: 280px;
+  padding: 5px 10px;
 }
 
 .form_input:hover,
@@ -62,8 +69,17 @@
   transition: all 0.3s ease-in-out;
 }
 
+.contactsForm {
+  max-width: 300px;
+  overflow-x: hidden;
+}
+
 .contactsForm > table {
   width: 300px;
+  margin: 0;
+  padding: 0;
+  table-layout: auto;
+  border-spacing: 0;
 }
 
 .facebook, .website, .vk, .twitter, .instagram,
