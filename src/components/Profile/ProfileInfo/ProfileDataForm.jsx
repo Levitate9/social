@@ -45,7 +45,7 @@ const ProfileDataForm = ({ onSubmit, profile }) => {
         </tbody>
       </table>
     </div>
-    <div className={s.button} type='submit'><button>save</button></div>
+    <div className={s.button} type='submit'><button>Save</button></div>
   </form>
 }
 

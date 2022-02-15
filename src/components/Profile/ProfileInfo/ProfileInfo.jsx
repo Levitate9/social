@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import s from './ProfileInfo.module.css'
-import Preloader from "../../common/Preloader/Preloader"
-import ProfileStatusWithHooks from "./ProfileStatusWithHooks"
-import userPhoto from "../../../assets/images/user.png"
+import Preloader from '../../common/Preloader/Preloader'
+import ProfileStatus from './ProfileStatus'
+import userPhoto from '../../../assets/images/user.png'
 import ProfileDataForm from './ProfileDataForm'
 
 
@@ -31,9 +31,11 @@ const ProfileInfo = ({ profile, status, updateUserStatus, isOwner, savePhoto, sa
     <div className={s.description}>
       <div className={s.imageArea}>
         <img src={profile.photos.large || userPhoto} className={s.mainPhoto} alt="profile avatar" />
-        <div>
-          {isOwner && editMode && <input type={"file"} onChange={onMainPhotoSelected} />}
-        </div>
+        { isOwner && editMode && <label className={s.upload_image}>
+            <input type={"file"} onChange={onMainPhotoSelected} />
+            Upload
+          </label>
+        }
       </div>
       <div className={s.profileDataArea}>
         {
@@ -60,7 +62,7 @@ const ProfileData = ({ profile, isOwner, goToEditMode, status, updateStatus }) =
     <div className={s.fullName}>
       {profile.fullName}
     </div>
-    <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
+    <ProfileStatus status={status} updateStatus={updateStatus} />
     <div className={s.lookingForAJob}>
       <b>Looking for a job</b>: {profile.lookingForAJob
         ? <span className={s.yes}>yes</span>
@@ -80,7 +82,7 @@ const ProfileData = ({ profile, isOwner, goToEditMode, status, updateStatus }) =
         return null
       })}
     </div>
-    {isOwner && <div className={s.button}><button onClick={goToEditMode}>edit</button></div>}
+    {isOwner && <div className={s.button}><button onClick={goToEditMode}>Edit profile</button></div>}
   </div>
 }
 

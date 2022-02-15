@@ -38,9 +38,9 @@
   width: 100px;
   outline: none;
   border: none;
-  border-radius: 5px;
+  border-radius: 3px;
   color: white;
-  background-color: rgba(33, 94, 65, 0.95);
+  background-color: rgba(33, 94, 65, 0.9);
 }
 
 .addPostButton > button:hover {
