@@ -12,7 +12,6 @@ const Dialogs = (props) => {
 
   let match = useRouteMatch('/dialogs/:id')
 
-
   let filterMessages = state.dialogs.filter((el) => {
     if (match === null) {
       return state.dialogs[0]

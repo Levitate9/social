@@ -6,8 +6,9 @@
 }
 
 .blockHeader {
-  padding: 10px;
+  margin: 10px 50px;
   font-size: 24pt;
-  font-weight: 700;
+  font-style: italic;
+  font-weight: 600;
   opacity: 30%;
 }
