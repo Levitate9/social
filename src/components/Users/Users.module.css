@@ -1,18 +1,72 @@
-.userPhoto {
-  width: 50px;
-  height: 50px;
+.preloader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 
-.user {
-  margin: 10px;
+.pagination {
+  padding: 21px 0 21px 25px;
+  border-bottom: 1px solid rgba(202, 202, 202, 1);
 }
 
 .selectedPage {
   font-weight: bold;
 }
 
-.pagination span {
-  margin: 3px;
-  padding: 3px;
-  border: 1px solid grey;
-} 
+.users_area {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 25px;
+  padding: 15px;
+  width: 120px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 3px;
+}
+
+.content_area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content_area > a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.userPhoto {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.follow_button {
+  align-self: center;
+}
+
+.follow_button > button {
+  width: 70px;
+  margin: 10px 0 5px 0;
+}
+
+.user_name {
+  width: fit-content;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
+

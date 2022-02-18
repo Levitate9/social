@@ -19,20 +19,20 @@ let Paginator = ({ totalItemsCount, pageSize, currentPage, onPageChanged, portio
 
   return <div className={s.paginator}>
     {portionNumber > 1 &&
-      <button onClick={() => { setPortionNumber(portionNumber - 1) }}>PREV</button>}
+      <button onClick={() => { setPortionNumber(portionNumber - 1) }} className={s.prev}>PREV</button>}
 
     {pages
       .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
       .map((p) => {
-        return <span 
+        return <div 
           className={cn( s.pageNumber, { [s.selectedPage]: currentPage === p } )}
           key={p}
-          onClick={(e) => { onPageChanged(p) }}>{p}</span>
+          onClick={(e) => { onPageChanged(p) }}>{p}</div>
       })
     }
 
     {portionCount > portionNumber &&
-      <button onClick={() => { setPortionNumber(portionNumber + 1) }}>NEXT</button>}
+      <button onClick={() => { setPortionNumber(portionNumber + 1) }} className={s.next}>NEXT</button>}
   </div>
 }
 

@@ -1,28 +1,30 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { follow, unfollow, getUsers } from '../../redux/users-reducer';
-import Users from './Users';
-import Preloader from '../common/Preloader/Preloader';
-import { compose } from 'redux';
+import React from 'react'
+import { connect } from 'react-redux'
+import { follow, unfollow, getUsers } from '../../redux/users-reducer'
+import Users from './Users'
+import Preloader from '../common/Preloader/Preloader'
+import { compose } from 'redux'
 import { getCurrentPage, getUsersSelector, getPageSize, getTotalUsersCount, getIsFetching, 
-  getFollowingInProgress } from '../../redux/users-selectors';
+  getFollowingInProgress } from '../../redux/users-selectors'
+import s from './Users.module.css'
 
 
 class UsersContainer extends React.Component {
 
   componentDidMount() {
     //66 видео, 16:30 минута и 19:00 продолжение
-    this.props.getUsers(this.props.currentPage, this.props.pageSize);
+    this.props.getUsers(this.props.currentPage, this.props.pageSize)
   }
 
   onPageChanged = (pageNumber) => {
-    //используем ту же санку что и выше, но с другим параметром - pageNumber, она возвращает юзеров на {pageNumber} странице
-    this.props.getUsers(pageNumber, this.props.pageSize);
+    //используем ту же санку что и выше, но с другим параметром - pageNumber, она возвращает юзеров 
+    //на pageNumber странице
+    this.props.getUsers(pageNumber, this.props.pageSize)
   }
 
   render() {
     return <>
-      { this.props.isFetching ? <Preloader /> : null }
+      <div className={s.preloader}>{ this.props.isFetching ? <Preloader /> : null }</div>
       <Users onPageChanged={this.onPageChanged}
         follow={this.props.follow}
         unfollow={this.props.unfollow}
