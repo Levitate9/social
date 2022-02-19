@@ -60,6 +60,10 @@
   margin: 10px 0 5px 0;
 }
 
+.follow_button > button:hover {
+  cursor: pointer;
+} 
+
 .user_name {
   width: fit-content;
   white-space: nowrap;
