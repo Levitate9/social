@@ -70,4 +70,4 @@ export const getCaptchaUrl = () => async (dispatch) => {
   dispatch(setCaptchaUrl(captchaUrl))
 }
 
-export default authReducer;
+export default authReducer

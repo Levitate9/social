@@ -65,10 +65,11 @@
 } 
 
 .user_name {
-  width: fit-content;
+  width: 110px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: center;
 }
 
 
