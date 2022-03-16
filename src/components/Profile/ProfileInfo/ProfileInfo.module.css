@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  margin: 0 0 0 50px;
+  margin: 50px 0 0 50px;
 }
 
 .imageArea {
@@ -46,7 +46,6 @@ input[type='file'] {
 
 .select_photo {
   position: absolute;
-  
   z-index: 2;
 }
 
@@ -57,6 +56,21 @@ input[type='file'] {
 .skills, .skillsForm,
 .contacts, .contactsForm {
   padding: 0 0 10px 0;
+}
+
+.fullNameForm,
+.aboutMeForm,
+.skillsForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.fullNameForm > input,
+.lookingForAJobForm > label > input,
+.aboutMeForm > textarea,
+.skillsForm > textarea {
+  margin-bottom: 15px;
 }
 
 .fullName {

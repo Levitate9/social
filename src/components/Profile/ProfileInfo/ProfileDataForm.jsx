@@ -18,7 +18,7 @@ const ProfileDataForm = ({ onSubmit, profile }) => {
 
   return <form onSubmit={handleSubmit(onSubmit)}>
     <div className={s.fullNameForm}>
-      <b>Full name</b>
+      <b>Full name:</b>
       <input {...register('fullName', { required: true })} placeholder='Full name' className={s.form_input} />
       {errors.fullName && <div className={s.error}>This field is required</div>}
     </div>
@@ -26,11 +26,11 @@ const ProfileDataForm = ({ onSubmit, profile }) => {
       <label><input {...register('lookingForAJob')} type='checkbox' />looking for a job</label>
     </div>
     <div className={s.skillsForm}>
-      <b>My professional skills</b>:
+      <b>My professional skills:</b>
       <textarea {...register('lookingForAJobDescription')} placeholder='My skills' className={s.form_textarea} />
     </div>
     <div className={s.aboutMeForm}>
-      <b>About me</b>:
+      <b>About me:</b>
       <textarea {...register('aboutMe')} placeholder='About me description' className={s.form_textarea} />
     </div>
     <div className={s.contactsForm}>
