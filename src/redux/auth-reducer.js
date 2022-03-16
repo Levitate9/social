@@ -13,7 +13,6 @@ let initialState = {
 };
 
 const authReducer = (state = initialState, action) => {
-
   switch (action.type) {
     case SET_USER_DATA:                        //для обоих кейсов одинаковые действия со стэйтом      
     case SET_CAPTCHA:
@@ -21,7 +20,6 @@ const authReducer = (state = initialState, action) => {
         ...state,
         ...action.payload
       }
-
     default:
       return state
   }
@@ -36,7 +34,6 @@ export const setCaptchaUrl = (captchaUrl) => ({ type: SET_CAPTCHA, payload: {cap
 //санк-криэйтеры
 export const getAuthUserData = () => async (dispatch) => {
   const response = await authAPI.me()
-
   if (response.resultCode === 0) {
     const { id, email, login } = response.data
     dispatch(setAuthUserData(id, email, login, true))
@@ -58,7 +55,6 @@ export const login = (email, password, rememberMe, captcha) => async (dispatch) 
 
 export const logout = () => async (dispatch) => {
   const response = await authAPI.logout()
-
   if (response.resultCode === 0) {
     dispatch(setAuthUserData(null, null, null, false))
   }

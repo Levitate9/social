@@ -1,6 +1,6 @@
-import React from 'react';
-import s from './Post.module.css';
-import heart from '../../../../assets/images/heart.png';
+import React from 'react'
+import s from './Post.module.css'
+import heart from '../../../../assets/images/heart.png'
 
 const Post = (props) => {
   return (
@@ -17,4 +17,4 @@ const Post = (props) => {
   )
 }
 
-export default Post;
+export default Post

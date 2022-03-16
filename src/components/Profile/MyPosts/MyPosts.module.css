@@ -1,6 +1,6 @@
 .posts_area {
   margin: 0 0 0 50px;
-  width: 575px;
+  width: 675px;
 }
 
 .posts {
@@ -8,7 +8,7 @@
 }
 
 .addPost_textarea {
-  width: 555px;
+  width: 655px;
   height: 80px;
   padding: 5px 10px 5px 10px;
   border-radius: 3px;

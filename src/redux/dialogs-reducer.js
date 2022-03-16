@@ -62,7 +62,7 @@ let initialState = {
       chat_history: [
         { message_id: 1, owner: false, message_text: 'Hello Mark', message_date: new Date('December 18, 2021 12:31:00') },
         { message_id: 2, owner: false, message_text: 'Join us at friday`s night ride', message_date: new Date('December 18, 2021 12:31:10') },
-        { message_id: 3, owner: false, message_text: 'It will be fun', message_date: new Date('December 18, 2021 12:31:30') },
+        { message_id: 3, owner: false, message_text: 'It`ll be fun', message_date: new Date('December 18, 2021 12:31:30') },
         { message_id: 4, owner: true, message_text: 'Hi there', message_date: new Date('December 18, 2021 12:34:00') },
         { message_id: 5, owner: true, message_text: 'Sorry buddy, on Friday I`m going to the movies with a very beautiful girl you know))', message_date: new Date('December 18, 2021 12:34:30') },
         { message_id: 6, owner: false, message_text: 'Alicia?!', message_date: new Date('December 18, 2021 12:35:00') },

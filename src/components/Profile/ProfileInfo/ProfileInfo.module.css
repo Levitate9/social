@@ -16,7 +16,7 @@
 .profileDataArea {
   margin: 0 0 0 25px;
   flex-grow: 1;
-  width: 300px;
+  width: 400px;
 }
 
 .mainPhoto {
@@ -75,6 +75,35 @@ input[type='file'] {
 
 .status > span:hover {
   cursor: pointer;
+}
+
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  width: fit-content;
+  margin-left: 15px;
+  background-color: rgba(236, 236, 236, 1);
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  margin-top: -5px;
+  padding: 5px 15px;
+  box-shadow: 0px 3px 6px 1px rgba(34, 60, 80, 0.1);
+}
+
+.tooltip::before {
+  content: ' ';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  background-color: rgba(236, 236, 236, 1);
+  transform: rotate(45deg);
+  left: 0%;
+  top: 40%;
+}
+
+.status > span:hover > .tooltip {
+  visibility: visible;
 }
 
 .form_input,
