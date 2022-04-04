@@ -46,7 +46,7 @@ const Login = (props) => {
       <div className={s.free_access_container}>
         <div className={s.free_access_wrap}>
           <div className={s.keys}><b>Email: </b><b>Pass: </b></div>
-          <div className={s.values}><span>free@samuraijs.com</span><span>free</span></div>
+          <div className={s.values}><span>shigeto.df@gmail.com</span><span>free</span></div>
         </div>
       </div>
     </div>
