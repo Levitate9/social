@@ -2,9 +2,9 @@ import React from 'react'
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
 import { HashRouter, Redirect, Route, Switch, withRouter } from 'react-router-dom'
-import News from './components/News/News'
-import Music from './components/Music/Music'
-import Settings from './components/Settings/Settings'
+// import News from './components/News/News'
+// import Music from './components/Music/Music'
+// import Settings from './components/Settings/Settings'
 import HeaderContainer from './components/Header/HeaderContainer'
 import Login from './components/Login/Login'
 import { connect, Provider } from 'react-redux'
@@ -20,10 +20,10 @@ const UsersContainer = React.lazy( () => import('./components/Users/UsersContain
 
 class App extends React.Component {
 
-  catchAllUnhandledErrors = (PromiseRejectionEvent) => {
-    console.log(PromiseRejectionEvent)
-    alert(PromiseRejectionEvent.reason.response.data.message || 'some error')
-  }
+  // catchAllUnhandledErrors = (PromiseRejectionEvent) => {
+  //   console.log(PromiseRejectionEvent)
+  //   alert(PromiseRejectionEvent.reason.response.data.message || 'some error')
+  // }
 
   componentDidMount() {
     this.props.initializeApp()
@@ -52,9 +52,9 @@ class App extends React.Component {
               <Route path='/profile/:userId?' render={() => <ProfileContainer />} />
               <Route path='/dialogs' render={() => <DialogsContainer />} />
               <Route path='/users' render={() => <UsersContainer />} />
-              <Route path='/news' component={News} />
+              {/* <Route path='/news' component={News} />
               <Route path='/music' component={Music} />
-              <Route path='/settings' component={Settings} />
+              <Route path='/settings' component={Settings} /> */}
               <Route path='/login' render={() => <Login />} />
               <Route path='*' render={ () => <div>404 Page not found</div> } /> 
             </Switch>
