@@ -19,7 +19,3 @@
 .item a.active {
   color: gold;
 }
-
-.item:last-child {
-  margin: 30px 0 20px 0;
-}
